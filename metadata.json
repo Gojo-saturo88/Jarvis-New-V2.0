@@ -1,0 +1,6 @@
+{
+  "name": "JARVIS 4.0 - Holographic Android AI Assistant",
+  "description": "Futuristic personal AI assistant featuring a cinematic 3D golden holographic sphere, free voice recognition, Hindi & English natural language commands, Android app launcher & companion app, web search, and YouTube integration.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

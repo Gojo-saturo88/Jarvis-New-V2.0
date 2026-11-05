@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-holo-gold: #f59e0b;
+    --color-holo-amber: #d97706;
+    --color-holo-orange: #ea580c;
+    --color-holo-core: #ffedd5;
+    --color-holo-glow: rgba(245, 158, 11, 0.4);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #030407;
+    color: #e2e8f0;
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom holographic grid and glass styling */
+.hud-font {
+  font-family: 'Chakra Petch', 'Rajdhani', sans-serif;
+}
+
+.mono-font {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35), inset 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+.gold-glow-intense {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.6), inset 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+.holo-border {
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.holo-panel {
+  background: rgba(10, 12, 18, 0.82);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.65), inset 0 0 12px rgba(245, 158, 11, 0.08);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06080e;
+}
+::-webkit-scrollbar-thumb {
+  background: #d97706;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
