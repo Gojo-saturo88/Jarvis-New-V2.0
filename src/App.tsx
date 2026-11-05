@@ -42,8 +42,13 @@ export default function App() {
   const [state, setState] = useState<AssistantState>('idle');
   // Default to user's reference image orb: Tony Stark Golden Hologram
   const [theme, setTheme] = useState<ThemeMode>('stark-gold');
-  // Default to Reference Glass OS (matching user's uploaded reference screenshot)
-  const [hudMode, setHudMode] = useState<'reference' | 'mobile'>('reference');
+  // Responsive HUD: Clean Mobile HUD on small screens, Reference Glass OS on desktop
+  const [hudMode, setHudMode] = useState<'reference' | 'mobile'>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return 'mobile';
+    }
+    return 'reference';
+  });
   const [language, setLanguage] = useState<SupportedLanguage>('auto');
   const [isListening, setIsListening] = useState(false);
   const [autoSpeak, setAutoSpeak] = useState(true);
@@ -439,7 +444,7 @@ export default function App() {
   const latestEmail = emails.find((e) => !e.isRead) || emails[0];
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#02050e] text-stone-100 flex flex-col justify-between select-none">
+    <div className="fixed inset-0 w-full h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#02050e] text-stone-100 flex flex-col justify-between select-none touch-none">
       {/* 1. Cinematic 3D Holographic Earth Globe with dynamic themes & reference discs */}
       <HologramSphere
         state={state}

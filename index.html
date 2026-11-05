@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#02050e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>JARVIS 4.0 - Holographic Android AI Assistant</title>
     <meta name="description" content="Futuristic personal AI assistant featuring a cinematic 3D golden holographic sphere, free voice recognition, Hindi & English natural language commands, Android app launcher & companion app, web search, and YouTube integration." />
     <meta property="og:title" content="JARVIS 4.0 - Holographic Android AI Assistant" />
@@ -13,8 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="overflow-hidden m-0 p-0 w-full h-full bg-[#02050e] touch-none select-none">
+    <div id="root" class="w-full h-full overflow-hidden"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

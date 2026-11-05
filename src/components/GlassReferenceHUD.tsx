@@ -141,10 +141,9 @@ export const GlassReferenceHUD: React.FC<GlassReferenceHUDProps> = ({
           </div>
 
           {/* Frosted address pill */}
-          <div className="flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-300">
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-xl text-xs text-slate-300">
             <Lock size={12} className="text-cyan-400" />
-            <span className="font-mono tracking-wide hidden md:inline">stark-industries://jarvis-core-4.0.os</span>
-            <span className="font-mono tracking-wide md:hidden">jarvis://v4.0</span>
+            <span className="font-mono tracking-wide">stark-industries://jarvis-core-4.0.os</span>
           </div>
         </div>
 
@@ -234,7 +233,7 @@ export const GlassReferenceHUD: React.FC<GlassReferenceHUDProps> = ({
       {/* 2. MAIN WORKSPACE WITH LAYERED TRANSLUCENT GLASS CARDS */}
       <div className="flex-1 flex items-stretch gap-4 sm:gap-6 my-3 overflow-hidden pointer-events-none relative">
         {/* LEFT VERTICAL GLASS DOCK (Icons matching images__2__c2c6db3e.jpeg) */}
-        <aside className="pointer-events-auto flex flex-col items-center justify-between w-14 sm:w-16 py-4 px-2 backdrop-blur-2xl bg-slate-900/40 border border-white/15 rounded-3xl shadow-2xl z-10">
+        <aside className="pointer-events-auto hidden md:flex flex-col items-center justify-between w-14 sm:w-16 py-4 px-2 backdrop-blur-2xl bg-slate-900/40 border border-white/15 rounded-3xl shadow-2xl z-10">
           {/* Top user avatar */}
           <div className="flex flex-col items-center gap-4">
             <div
@@ -333,85 +332,8 @@ export const GlassReferenceHUD: React.FC<GlassReferenceHUDProps> = ({
           </div>
         </aside>
 
-        {/* CENTER FLOATING GLASS WINDOWS (Translucent layered cards from reference image) */}
-        <div className="flex-1 flex flex-col justify-center items-center lg:items-start relative pointer-events-none">
-          {/* Main Backdrop Card (Matching the main window behind the analytics card) */}
-          <div className="pointer-events-auto w-full max-w-lg backdrop-blur-2xl bg-slate-900/40 border border-white/20 rounded-3xl p-5 shadow-2xl relative z-10 transition-all">
-            {/* Window header dots */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-white/30" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
-              </div>
-              <div className="flex items-center gap-1.5 text-slate-400">
-                <Plus size={14} className="hover:text-white cursor-pointer" />
-                <Maximize2 size={13} className="hover:text-white cursor-pointer" />
-              </div>
-            </div>
-
-            {/* Jarvis Avatar Row */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg">
-                <Flame size={20} />
-              </div>
-              <div>
-                <h2 className="text-base font-bold text-white tracking-wide flex items-center gap-2">
-                  <span>JARVIS 4.0</span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">
-                    GEMINI 3.8 FLASH
-                  </span>
-                </h2>
-                <p className="text-xs text-slate-300 font-mono">Neural Quantum Brain Online</p>
-              </div>
-            </div>
-
-            {/* Content Preview & Live Speech Response Lines */}
-            <div className="space-y-3 mb-4">
-              {/* Document / Intelligence Block */}
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-                <div className="flex items-center gap-2 text-xs text-cyan-300 font-mono">
-                  <FileText size={14} />
-                  <span>INTELLIGENCE SYNTHESIS</span>
-                </div>
-                <p className="text-xs text-slate-200 leading-relaxed font-sans line-clamp-3">
-                  {response || 'At your service, Sir. Ready to execute commands or analyze global data.'}
-                </p>
-                {transcript && (
-                  <div className="text-[11px] text-amber-300/90 font-mono pt-1 border-t border-white/5">
-                    User: "{transcript}"
-                  </div>
-                )}
-              </div>
-
-              {/* Frosted horizontal sub-cards */}
-              <div className="grid grid-cols-2 gap-2">
-                <div
-                  onClick={onOpenEmails}
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer transition-all flex items-center gap-2"
-                >
-                  <Mail size={14} className="text-amber-400 shrink-0" />
-                  <div className="truncate">
-                    <div className="text-[10px] text-slate-400 font-mono">INBOX</div>
-                    <div className="text-xs text-white font-medium truncate">
-                      {unreadEmailCount} Unread Emails
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  onClick={onOpenDiagnostics}
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer transition-all flex items-center gap-2"
-                >
-                  <ShieldAlert size={14} className="text-emerald-400 shrink-0" />
-                  <div className="truncate">
-                    <div className="text-[10px] text-slate-400 font-mono">DIAGNOSTICS</div>
-                    <div className="text-xs text-emerald-300 font-medium">Power Nominal</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* CENTER WORKSPACE: 100% open and unobstructed so the 3D Holographic Globe is fully visible without any cards in front of it */}
+        <div className="flex-1 relative pointer-events-none" />
 
           {/* FOREGROUND OVERLAPPING ANALYTICS WINDOW (Prominent in images__2__c2c6db3e.jpeg) */}
           <div className="pointer-events-auto hidden lg:flex flex-col w-84 backdrop-blur-2xl bg-slate-900/50 border border-white/20 rounded-3xl p-5 shadow-2xl absolute right-8 top-12 z-20">
@@ -526,7 +448,22 @@ export const GlassReferenceHUD: React.FC<GlassReferenceHUDProps> = ({
             </svg>
           </div>
         </div>
-      </div>
+
+      {/* Non-obstructing Floating Speech Subtitle (position at bottom, never blocks the 3D Orb) */}
+      {(transcript || (response && state !== 'idle')) && (
+        <div className="pointer-events-auto max-w-lg w-full mx-auto px-4 py-2.5 rounded-2xl backdrop-blur-2xl bg-slate-950/80 border border-cyan-400/30 text-center shadow-2xl mb-2 z-20">
+          {transcript && (
+            <p className="text-[11px] font-mono text-cyan-300 truncate mb-0.5">
+              &ldquo;{transcript}&rdquo;
+            </p>
+          )}
+          {response && (
+            <p className="text-xs text-slate-200 leading-relaxed font-sans font-medium line-clamp-3">
+              {response}
+            </p>
+          )}
+        </div>
+      )}
 
       {/* 3. BOTTOM FLOATING ACTION CAPSULE DOCK (Directly matching the pill dock from images__2__c2c6db3e.jpeg) */}
       <div className="pointer-events-auto flex flex-col items-center gap-2.5 max-w-xl mx-auto w-full z-20">
